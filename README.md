@@ -41,7 +41,7 @@ Para conseguir utilizar a aplicação sem nenhum problema é necessário ter em 
 
 ### 📝 Passo a passo
 
-Primeiro clone o repositório em seu computador, por meio do terminal utilizando o comando:
+Para executar a aplicação é fácil, basta seguir os passos abaixo:
 
 1. Clonando o repositório
 
