@@ -1,4 +1,4 @@
-# 🤖 React Google Books 
+# 🤖 React Google Books
 
 <h1 align="center">
     <img alt="React" src="./public/logo512.png" />
@@ -18,6 +18,8 @@
   <a href="#-tecnologias-utilizadas">Tecnologias utilizadas</a>
   <span> · </span>
   <a href="#-como-usar">Como usar</a>
+   <span> · </span>
+   <a href="#-imagens-de-demonstracao">Imagens de demonstração</a>
 </h3>
 
 ## 💭 Sobre
@@ -65,5 +67,10 @@ Para executar a aplicação é fácil, basta seguir os passos abaixo:
   # Comando para iniciar a aplicação
   $ yarn start # ou npm start
 ```
+
+### 📸 Imagens de demonstração
+
+<img alt="demo" src="./public/demo.jpeg" />
+<img alt="demo-2" src="./public/demo-2.jpeg" />
 
 <sup> Feito com 💙 por <a href="https://github.com/gabrielpatrola" target="_blank" rel="noopener">Gabriel Patrola</a>.</sup>
