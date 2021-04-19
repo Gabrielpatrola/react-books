@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+.navbar {
+  border-bottom: solid 1px #ebebeb;
+  background-color: #fff9f4;
+}
+
+.bottom-tab-nav {
+  border-top: solid 1px #ebebeb;
+}
+
+.nav-link,
+.bottom-nav-link {
+  color: #BFBEBF;
+}
+
+.bottom-nav-link.active {
+  color: #000000;
+}
+
+.bottom-tab-label {
+  font-size: 12px;
+}
