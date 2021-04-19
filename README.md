@@ -19,7 +19,7 @@
   <span> · </span>
   <a href="#-como-usar">Como usar</a>
    <span> · </span>
-   <a href="#-imagens-de-demonstracao">Imagens de demonstração</a>
+   <a href="#-imagens-de-demonstração">Imagens de demonstração</a>
 </h3>
 
 ## 💭 Sobre
@@ -70,7 +70,7 @@ Para executar a aplicação é fácil, basta seguir os passos abaixo:
 
 ### 📸 Imagens de demonstração
 
-<img alt="demo" src="./public/demo.jpeg" />
-<img alt="demo-2" src="./public/demo-2.jpeg" />
+<img alt="demo" width="40%" src="./public/demo.jpeg" />
+<img alt="demo-2" width="40%"src="./public/demo (2).jpeg" />
 
 <sup> Feito com 💙 por <a href="https://github.com/gabrielpatrola" target="_blank" rel="noopener">Gabriel Patrola</a>.</sup>
