@@ -65,6 +65,8 @@ const Search = () => {
         </Col>
       </Row>
       <Row xs="4" className="mt-5">
+        {!books && <></>}
+
         {books && books.slice(0, 40).map((item) => {
           return (
             <Col xs="4">

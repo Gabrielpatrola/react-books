@@ -83,60 +83,49 @@ const Home = () => {
       <Row className="mt-5">
         <Col xs="10"><h3>Discover new books </h3></Col>
         <Col xs="2"><p style={{ color: '#4ABDF1', fontSize: '14px' }}>more</p></Col>
-        <CardGroup>
-
-          {newBooks && newBooks.slice(4, 8).map((item) => {
-            return (
-              <Card>
-                <CardImg top width="100%" src={item.volumeInfo.imageLinks.thumbnail} alt="Card image cap" />
-              </Card>
-            )
-          })}
-        </CardGroup>
-
-        <Row className="mt-5">
-          <Col xs="12">
-
-          </Col>
-        </Row>
+        {newBooks && newBooks.slice(4, 7).map((item) => {
+          return (
+            <Col xs="4">
+              <CardGroup className="m-2">
+                <Card>
+                  <CardImg top width="100%" src={item.volumeInfo.imageLinks.thumbnail} alt="Card image cap" />
+                </Card>
+              </CardGroup>
+            </Col>
+          )
+        })}
       </Row>
 
       <Row className="mt-5">
         <Col xs="10"><h3>Currently reading</h3></Col>
         <Col xs="2"><p style={{ color: '#4ABDF1', fontSize: '14px' }}>All</p></Col>
-        <Row className="mt-5">
-          <Col xs="12">
-            <CardGroup>
-
-              {readingBooks && readingBooks.slice(4, 8).map((item) => {
-                return (
-                  <Card>
-                    <CardImg top width="100%" src={item.volumeInfo.imageLinks.thumbnail} alt="Card image cap" />
-                  </Card>
-                )
-              })}
-            </CardGroup>
-          </Col>
-        </Row>
+        {readingBooks && readingBooks.slice(4, 7).map((item) => {
+          return (
+            <Col xs="4">
+              <CardGroup className="m-2">
+                <Card>
+                  <CardImg top width="100%" src={item.volumeInfo.imageLinks.thumbnail} alt="Card image cap" />
+                </Card>
+              </CardGroup>
+            </Col>
+          )
+        })}
       </Row>
 
       <Row className="mt-5">
         <Col xs="10"><h3>Reviews of the day</h3></Col>
         <Col xs="2"><p style={{ color: '#4ABDF1', fontSize: '14px' }}>All video</p></Col>
-        <Row className="mt-5">
-          <Col xs="12">
-            <CardGroup>
-
-              {booksReviews && booksReviews.slice(2, 6).map((item) => {
-                return (
-                  <Card>
-                    <CardImg top width="100%" src={item.volumeInfo.imageLinks.smallThumbnail} alt="Card image cap" />
-                  </Card>
-                )
-              })}
-            </CardGroup>
-          </Col>
-        </Row>
+        {booksReviews && booksReviews.slice(2, 5).map((item) => {
+          return (
+            <Col xs="4">
+              <CardGroup className="m-2">
+                <Card>
+                  <CardImg top width="100%" src={item.volumeInfo.imageLinks.thumbnail} alt="Card image cap" />
+                </Card>
+              </CardGroup>
+            </Col>
+          )
+        })}
       </Row>
     </Container >
   )
