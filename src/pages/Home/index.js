@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import {
   InputGroup,
   InputGroupAddon,
@@ -17,10 +17,10 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 import api from "../../services/api";
 
+import notFound from '../../assets/no-image-available.jpg';
+
 const Home = () => {
-  const [newBooks, setNewBooks] = useState();
-  const [readingBooks, setReadingBooks] = useState();
-  const [booksReviews, setBooksReviews] = useState();
+  const [books, setBooks] = useState();
 
   const [query, setQuery] = useState();
 
@@ -28,18 +28,11 @@ const Home = () => {
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(async () => {
-    const responseNewBooks = await api.get('?q=search+terms')
-    setNewBooks(responseNewBooks.data.items);
-
-    const reponseReadingBooks = await api.get('?q=harry+potter')
-    setReadingBooks(reponseReadingBooks.data.items);
-
-    const responseBooksReviews = await api.get('?q=javascript')
-    setBooksReviews(responseBooksReviews.data.items);
+    const response = await api.get('?q=lisp')
+    setBooks(response.data.items);
   }, []);
 
   async function handleSearchBooks() {
-
     history.push({
       pathname: '/search',
       state: { query },
@@ -83,14 +76,28 @@ const Home = () => {
       <Row className="mt-5">
         <Col xs="10"><h3>Discover new books </h3></Col>
         <Col xs="2"><p style={{ color: '#4ABDF1', fontSize: '14px' }}>more</p></Col>
-        {newBooks && newBooks.slice(4, 7).map((item) => {
+        {books && books.slice(4, 7).map((item) => {
           return (
             <Col xs="4">
-              <CardGroup className="m-2">
-                <Card>
-                  <CardImg top width="100%" src={item.volumeInfo.imageLinks.thumbnail} alt="Card image cap" />
-                </Card>
-              </CardGroup>
+              <Link to={{
+                pathname: "/detail",
+                state: { book: item }
+              }}>
+                <CardGroup className="m-2">
+                  <Card>
+                    <CardImg
+                      alt="Card image cap"
+                      style={{
+                        maxHeight: '350px',
+                        width: '100%',
+                        objectFit: 'cover'
+                      }}
+                      top
+                      src={item.volumeInfo.imageLinks ? item.volumeInfo.imageLinks.thumbnail : notFound}
+                    />
+                  </Card>
+                </CardGroup>
+              </Link>
             </Col>
           )
         })}
@@ -99,14 +106,28 @@ const Home = () => {
       <Row className="mt-5">
         <Col xs="10"><h3>Currently reading</h3></Col>
         <Col xs="2"><p style={{ color: '#4ABDF1', fontSize: '14px' }}>All</p></Col>
-        {readingBooks && readingBooks.slice(4, 7).map((item) => {
+        {books && books.slice(4, 7).map((item) => {
           return (
             <Col xs="4">
-              <CardGroup className="m-2">
-                <Card>
-                  <CardImg top width="100%" src={item.volumeInfo.imageLinks.thumbnail} alt="Card image cap" />
-                </Card>
-              </CardGroup>
+              <Link to={{
+                pathname: "/detail",
+                state: { book: item }
+              }}>
+                <CardGroup className="m-2">
+                  <Card>
+                    <CardImg
+                      alt="Card image cap"
+                      style={{
+                        maxHeight: '350px',
+                        width: '100%',
+                        objectFit: 'cover'
+                      }}
+                      top
+                      src={item.volumeInfo.imageLinks ? item.volumeInfo.imageLinks.thumbnail : notFound}
+                    />
+                  </Card>
+                </CardGroup>
+              </Link>
             </Col>
           )
         })}
@@ -115,14 +136,28 @@ const Home = () => {
       <Row className="mt-5">
         <Col xs="10"><h3>Reviews of the day</h3></Col>
         <Col xs="2"><p style={{ color: '#4ABDF1', fontSize: '14px' }}>All video</p></Col>
-        {booksReviews && booksReviews.slice(2, 5).map((item) => {
+        {books && books.slice(7, 12).map((item) => {
           return (
             <Col xs="4">
-              <CardGroup className="m-2">
-                <Card>
-                  <CardImg top width="100%" src={item.volumeInfo.imageLinks.thumbnail} alt="Card image cap" />
-                </Card>
-              </CardGroup>
+              <Link to={{
+                pathname: "/detail",
+                state: { book: item }
+              }}>
+                <CardGroup className="m-2">
+                  <Card>
+                    <CardImg
+                      alt="Card image cap"
+                      style={{
+                        height: '150px',
+                        width: '100%',
+                        objectFit: 'cover'
+                      }}
+                      top
+                      src={item.volumeInfo.imageLinks ? item.volumeInfo.imageLinks.thumbnail : notFound}
+                    />
+                  </Card>
+                </CardGroup>
+              </Link>
             </Col>
           )
         })}

@@ -69,24 +69,28 @@ const Search = () => {
 
         {books && books.slice(0, 40).map((item) => {
           return (
-            <Col xs="4">
+           <Col xs="4">
               <Link to={{
                 pathname: "/detail",
                 state: { book: item }
               }}>
                 <CardGroup className="m-2">
-                  <CardImg top src={item.volumeInfo.imageLinks ? item.volumeInfo.imageLinks.thumbnail : notFound} alt="Card image cap"
+                  <CardImg
+                    alt="Card image cap"
                     style={{
-                      height: 'auto',
-                      maxHeight: '250px',
-                      width: 'auto',
-                      maxWidth: '250px'
+                      height: '150px',
+                      width: '100%',
+                      objectFit: 'cover'
                     }}
+                    top
+                    src={item.volumeInfo.imageLinks ? item.volumeInfo.imageLinks.thumbnail : notFound}
                   />
                   <p>{item.volumeInfo.title.length > 30
                     ? item.volumeInfo.title.substring(0, 30 - 3) + '...'
                     : item.volumeInfo.title}</p>
-                  <p className="mb-2 text-muted">by {item.volumeInfo.authors ? item.volumeInfo.authors : 'Unknow Author'}</p>
+                  <p className="mb-2 text-muted">by {item.volumeInfo.authors ? item.volumeInfo.authors.length > 10
+                    ? item.volumeInfo.authors.substring(0, 10 - 3) + '...'
+                    : item.volumeInfo.authors : 'Unknow Author'}</p>
                 </CardGroup>
               </Link>
             </Col>
